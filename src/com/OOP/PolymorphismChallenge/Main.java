@@ -65,28 +65,38 @@ class BMW extends Car{
     }
 }
 
+class Audi extends Car{
+    public Audi(int doors, int cylinders) {
+        super(doors, cylinders);
+    }
 
+    @Override
+    public void horsePower(){
+        System.out.print("In Audi and "); startEngine();
+        int hp = getCylinders()*100;
+        System.out.println("Horse power for "+getCylinders()+" cylinder car is: "+ hp);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    @Override
+    public String coupeOrSedan() {
+        if(this.getDoors() == 2){
+            return "This is a coupe";
+        }else{
+            return "This is a sedan";
+        }
+    }
+}
 
 
 public class Main {
     public static void main(String[] args) {
 
         BMW bmw = new BMW(2,4);
-
         bmw.horsePower();
         bmw.coupeOrSedan();
+
+        Audi audi = new Audi(4,6);
+        audi.horsePower();
+        audi.coupeOrSedan();
     }
 }
